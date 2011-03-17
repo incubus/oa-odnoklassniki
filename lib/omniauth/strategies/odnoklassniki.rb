@@ -31,7 +31,7 @@ module OmniAuth
       def user_hash
         request_params =  {
           'method' => 'users.getCurrentUser',
-          'application_key' => @public_key,
+          'application_key' => @public_key
         }
         request_params.merge!('access_token' => @access_token.token, 'sig' => calculate_signature(request_params))
         @user_hash ||= MultiJson.decode(client.request(:get, 'http://api.odnoklassniki.ru/fb.do', request_params))
