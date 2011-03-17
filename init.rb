@@ -1,0 +1,2 @@
+require 'oa-odnoklassniki'
+
