@@ -37,13 +37,11 @@ module OmniAuth
         data = user_hash
         OmniAuth::Utils.deep_merge(super, {
           'uid' => data['uid'],
-          'name' => data['name'],
-          'email' => data['email'],
-          'image' => data['pic_1'],
-          'urls' =>  {
-            'Odnoklassniki' => "http://www.odnoklassniki.ru/profile/#{data['uid']}",
-          },
-          'user_info' => data
+          'user_info' => data.merge({
+            'image' => data['pic_1'],
+            'urls' =>  {'Odnoklassniki' => "http://www.odnoklassniki.ru/profile/#{data['uid']}"}
+          }),
+          'extra' => {'user_hash' => data}
         })
       end
 
