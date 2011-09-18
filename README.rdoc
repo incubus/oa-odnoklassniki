@@ -9,12 +9,12 @@
 Добавить в config/initializers/omniauth.rb:
 
   Rails.application.config.middleware.use OmniAuth::Builder do
-    provider ::odnoklassniki, <ID приложения>, <Секретный ключ приложения>, :private_key => <Публичный ключ приложения>
+    provider ::odnoklassniki, <ID приложения>, <Секретный ключ приложения>, :public_key => <Публичный ключ приложения>
   end
 
 Devise с версии 1.2.rc интегрирован с OmniAuth. Подключить к нему <tt>oa-odnoklassniki</tt> достаточно просто, дописав в <tt>config/initializers/devise.rb</tt>:
 
-  config.omniauth :odnoklassniki, <ID приложения>, <Секретный ключ приложения>, :private_key => <Публичный ключ приложения>
+  config.omniauth :odnoklassniki, <ID приложения>, <Секретный ключ приложения>, :public_key => <Публичный ключ приложения>
 
 == Ссылки
 
