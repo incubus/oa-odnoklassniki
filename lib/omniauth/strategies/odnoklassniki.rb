@@ -14,10 +14,6 @@ module OmniAuth
           :access_token_path => 'http://api.odnoklassniki.ru/oauth/token.do'
         }
         @public_key = options[:public_key]
-        options = {
-          :response_type => 'code',
-          :grant_type => 'authorization_code'
-        }
         super(app, :odnoklassniki, client_id, client_secret, client_options, options, &block)
       end
 
@@ -41,8 +37,12 @@ module OmniAuth
         data = user_hash
         OmniAuth::Utils.deep_merge(super, {
           'uid' => data['uid'],
-          'nickname' => data['name'],
+          'name' => data['name'],
           'email' => data['email'],
+          'image' => data['pic_1'],
+          'urls' => {
+            'Odnoklassniki' => "http://www.odnoklassniki.ru/profile/#{data['uid']}",
+          },
           'user_info' => data
         })
       end
