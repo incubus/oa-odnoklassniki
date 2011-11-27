@@ -1,5 +1,7 @@
 = oa-odnoklassniki
 
+Версия, совместимая с OmniAuth 1.0, находится здесь: https://github.com/incubus/omniauth-odnoklassniki
+
 Расширение для OmniAuth, реализующее авторизацию от Odnoklassniki.ru по протоколу OAuth 2.0
 
 == Установка и использование
